@@ -37,6 +37,21 @@ public class MainComparator {
 		System.out.println("F1"+ f1.apply(sergio));
 		System.out.println("F1"+ f2.apply(sergio));
 		System.out.println("F1"+ f3.apply(sergio));
+		
+		System.out.println("NEW METHOD with FUNCTION");
+		
+		Comparator<Person> cmpPerson = Comparator.comparing(f1);
+		System.out.println("Imprime "+ cmpPerson.compare(sergio, diego));
+		
+		System.out.println("NEW METHOD with FUNCTION EXPRESION");
+		
+		Comparator<Person> cmpPersonTwo = Comparator.comparing(p -> p.getAge());
+		System.out.println("Imprime "+ cmpPerson.compare(sergio, diego));
+		
+		System.out.println("Method Reference");
+		Comparator<Person> cmpPersonThree = Comparator.comparing(Person::getAge);
+		System.out.println("Imprime "+ cmpPerson.compare(sergio, diego));
+		
 	}
 
 }
