@@ -1,6 +1,8 @@
 package lambdaExpression;
 
-import java.util.Comparator;
+import java.util.function.Function;
+
+
 
 /**
  * @author seralfon1
@@ -13,10 +15,28 @@ public class MainComparator {
 		System.out.println("workind on");
 		Person sergio = new Person("Sergio", "Alfonso", 30);
 		Person diego = new Person("Diego", "Fernando", 35);
-		
+
+		System.out.println("COMPARATORD");
+
 		Comparator<Person> cmpAge = (p1, p2) -> p2.getAge() - p1.getAge();
 		
 		System.out.println("Imprime "+ cmpAge.compare(diego, sergio));
+		
+		Comparator<Person> cmpFirstName = (p1, p2) -> p1.getFisrtName().compareTo(p2.getFisrtName());
+		
+		System.out.println("Imprime "+ cmpFirstName.compare(sergio, diego));
+		
+		Comparator<Person> cmpLastName = (p1, p2) -> p1.getLastName().compareTo(p2.getLastName());
+		
+		Function<Person, Integer> f1 = p -> p.getAge();
+		Function<Person, String> f2 = p -> p.getFisrtName();
+		Function<Person, String> f3 = p -> p.getLastName();
+		
+		System.out.println("FUNCTION");
+		
+		System.out.println("F1"+ f1.apply(sergio));
+		System.out.println("F1"+ f2.apply(sergio));
+		System.out.println("F1"+ f3.apply(sergio));
 	}
 
 }
